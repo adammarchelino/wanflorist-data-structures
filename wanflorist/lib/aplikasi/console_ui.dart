@@ -1,0 +1,57 @@
+import 'dart:io';
+
+class ConsoleUI {
+  void tampilkanHeader() {
+    print('');
+    print('');
+    print('         WAN FLORIST          ');
+    print('');
+  }
+
+  void tampilkanMenuUtama() {
+    print('\n MENU UTAMA ');
+    print('1. Kelola Katalog Produk');
+    print('2. Kelola Pesanan');
+    print('3. Lihat Log Aktivitas');
+    print('0. Keluar');
+    stdout.write('Pilih: ');
+  }
+
+  void tampilkanMenuKatalog() {
+    print('\n KATALOG PRODUK ');
+    print('1. Tambah Produk');
+    print('2. Hapus Produk');
+    print('3. Lihat Semua Produk');
+    print('4. Cari Produk');
+    print('5. Urutkan by Harga');
+    print('0. Kembali');
+    stdout.write('Pilih: ');
+  }
+
+  void tampilkanMenuPesanan() {
+    print('\n KELOLA PESANAN ');
+    print('1. Tambah Pesanan');
+    print('2. Proses Pesanan Berikutnya');
+    print('3. Lihat Antrian Pesanan');
+    print('0. Kembali');
+    stdout.write('Pilih: ');
+  }
+
+  String bacaInput() {
+    return stdin.readLineSync()!;
+  }
+
+  String bacaInputDenganLabel(String label) {
+    stdout.write('$label: ');
+    return stdin.readLineSync()!;
+  }
+
+  void tampilkanPesan(String pesan) {
+    print(pesan);
+  }
+
+  void tungguEnter() {
+    stdout.write('\nTekan Enter untuk melanjutkan...');
+    stdin.readLineSync();
+  }
+}
