@@ -15,17 +15,21 @@ class WanFloristApp {
       ui.tampilkanHeader();
       ui.tampilkanMenuUtama();
       String pilihan = ui.bacaInput();
+
       switch (pilihan) {
         case '1':
           menuKatalog();
           break;
+
         case '2':
           menuPesanan();
           break;
+
         case '3':
           antrian.lihatRiwayat();
           ui.tungguEnter();
           break;
+
         case '0':
           ui.tampilkanPesan('Terima kasih telah menggunakan WanFlorist!');
           jalan = false;
@@ -41,6 +45,7 @@ class WanFloristApp {
     while (!kembali) {
       ui.tampilkanMenuKatalog();
       String pilihan = ui.bacaInput();
+
       switch (pilihan) {
         case '1':
           String nama = ui.bacaInputDenganLabel('Nama produk');
@@ -50,16 +55,19 @@ class WanFloristApp {
           katalog.tambahProduk(nama, kategori, harga, stok);
           ui.tungguEnter();
           break;
+
         case '2':
           katalog.tampilkanSemuaProduk();
           String id = ui.bacaInputDenganLabel('ID Produk yang dihapus');
           katalog.hapusProduk(id);
           ui.tungguEnter();
           break;
+
         case '3':
           katalog.tampilkanSemuaProduk();
           ui.tungguEnter();
           break;
+
         case '4':
           String katakunci = ui.bacaInputDenganLabel('Nama produk');
           Produk? hasil = katalog.cariProduk(katakunci);
@@ -70,10 +78,12 @@ class WanFloristApp {
           }
           ui.tungguEnter();
           break;
+
         case '5':
           katalog.urutkanByHarga();
           ui.tungguEnter();
           break;
+
         case '0':
           kembali = true;
           break;
@@ -88,6 +98,7 @@ class WanFloristApp {
     while (!kembali) {
       ui.tampilkanMenuPesanan();
       String pilihan = ui.bacaInput();
+
       switch (pilihan) {
         case '1':
           String nama = ui.bacaInputDenganLabel('Nama pelanggan');
@@ -114,14 +125,17 @@ class WanFloristApp {
           }
           ui.tungguEnter();
           break;
+
         case '2':
           antrian.prosesPesanan();
           ui.tungguEnter();
           break;
+
         case '3':
           antrian.lihatAntrian();
           ui.tungguEnter();
           break;
+
         case '0':
           kembali = true;
           break;
