@@ -51,7 +51,7 @@ class KatalogProduk {
       print('Katalog kosong.');
       return;
     }
-    if (daftarProduk.head!.nodeValue.id == id) {
+    if (daftarProduk.head!.nodeValue.id.toLowerCase() == id.toLowerCase()) {
       daftarProduk.deleteFront();
       penyimpanan.simpanProduk(_keList());
       print('Produk berhasil dihapus.');
@@ -59,7 +59,7 @@ class KatalogProduk {
     }
     Node<Produk>? sekarang = daftarProduk.head;
     while (sekarang!.next != null) {
-      if (sekarang.next!.nodeValue.id == id) {
+      if (sekarang.next!.nodeValue.id.toLowerCase() == id.toLowerCase()) {
         sekarang.next = sekarang.next!.next;
         penyimpanan.simpanProduk(_keList());
         print('Produk berhasil dihapus.');
@@ -70,12 +70,47 @@ class KatalogProduk {
     print('Produk tidak ditemukan');
   }
 
+  void editProduk(
+    String id,
+    String nama,
+    String kategori,
+    double harga,
+    int stok,
+  ) {
+    Node<Produk>? sekarang = daftarProduk.head;
+    while (sekarang != null) {
+      if (sekarang.nodeValue.id.toLowerCase() == id.toLowerCase()) {
+        sekarang.nodeValue.nama = nama;
+        sekarang.nodeValue.kategori = kategori;
+        sekarang.nodeValue.harga = harga;
+        sekarang.nodeValue.stok = stok;
+        penyimpanan.simpanProduk(_keList());
+        print('Produk berhasil diupdate.');
+        return;
+      }
+      sekarang = sekarang.next;
+    }
+    print('Produk tidak ditemukan.');
+  }
+
   Produk? cariProduk(String katakunci) {
     Node<Produk>? sekarang = daftarProduk.head;
     while (sekarang != null) {
       if (sekarang.nodeValue.nama.toLowerCase().contains(
         katakunci.toLowerCase(),
       )) {
+        return sekarang.nodeValue;
+      }
+      sekarang = sekarang.next;
+    }
+    return null;
+  }
+
+  // Cari produk berdasarkan ID (case-insensitive)
+  Produk? cariProdukById(String id) {
+    Node<Produk>? sekarang = daftarProduk.head;
+    while (sekarang != null) {
+      if (sekarang.nodeValue.id.toLowerCase() == id.toLowerCase()) {
         return sekarang.nodeValue;
       }
       sekarang = sekarang.next;

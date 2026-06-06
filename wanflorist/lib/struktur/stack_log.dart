@@ -27,7 +27,7 @@ class StackLog {
     if (!isEmpty()) {
       Node<String>? sekarang = top;
       while (sekarang != null) {
-        print('${sekarang.nodeValue}');
+        print(sekarang.nodeValue);
         sekarang = sekarang.next;
       }
     } else {

@@ -1,4 +1,5 @@
 import 'package:wanflorist/struktur/queue_pesanan.dart';
+import 'package:wanflorist/struktur/node.dart';
 import 'package:wanflorist/struktur/stack_log.dart';
 import 'package:wanflorist/entitas/pesanan.dart';
 import 'package:wanflorist/entitas/detail_pesanan.dart';
@@ -35,6 +36,35 @@ class AntrianPesanan {
         'Pesanan ${pesanan.id} milik ${pesanan.namaPelanggan} selesai diproses.',
       );
     }
+  }
+
+  void editPesanan(String id, String namaPelanggan, String alamat) {
+    Node<Pesanan>? sekarang = antrian.head;
+    while (sekarang != null) {
+      if (sekarang.nodeValue.id.toLowerCase() == id.toLowerCase() &&
+          sekarang.nodeValue.status == 'antri') {
+        sekarang.nodeValue.namaPelanggan = namaPelanggan;
+        sekarang.nodeValue.alamat = alamat;
+        log.push('Pesanan $id telah diedit');
+        print('Pesanan $id berhasil diupdate.');
+        return;
+      }
+      sekarang = sekarang.next;
+    }
+    print('Pesanan tidak ditemukan atau sudah selesai diproses.');
+  }
+
+  // Cari pesanan berdasarkan ID (case-insensitive)
+  Pesanan? cariPesananById(String id) {
+    Node<Pesanan>? sekarang = antrian.head;
+    while (sekarang != null) {
+      if (sekarang.nodeValue.id.toLowerCase() == id.toLowerCase() &&
+          sekarang.nodeValue.status == 'antri') {
+        return sekarang.nodeValue;
+      }
+      sekarang = sekarang.next;
+    }
+    return null;
   }
 
   void lihatAntrian() {

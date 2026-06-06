@@ -24,7 +24,9 @@ class ConsoleUI {
     print('3. Lihat Semua Produk');
     print('4. Cari Produk');
     print('5. Urutkan by Harga');
-    print('0. Kembali');
+    print('6. Edit Produk');
+    print('E. Exit ke Menu Utama');
+    print('C. Keluar Program');
     stdout.write('Pilih: ');
   }
 
@@ -33,7 +35,9 @@ class ConsoleUI {
     print('1. Tambah Pesanan');
     print('2. Proses Pesanan Berikutnya');
     print('3. Lihat Antrian Pesanan');
-    print('0. Kembali');
+    print('4. Edit Pesanan');
+    print('E. Exit ke Menu Utama');
+    print('C. Keluar Program');
     stdout.write('Pilih: ');
   }
 
@@ -53,5 +57,79 @@ class ConsoleUI {
   void tungguEnter() {
     stdout.write('\nTekan Enter untuk melanjutkan...');
     stdin.readLineSync();
+  }
+
+  // Baca input double dengan default value jika kosong
+  double bacaDouble(String label, double defaultValue) {
+    stdout.write('$label (Enter untuk skip, default: $defaultValue): ');
+    String input = stdin.readLineSync()!.trim();
+    if (input.isEmpty) {
+      return defaultValue;
+    }
+    try {
+      return double.parse(input);
+    } catch (e) {
+      print('Input tidak valid. Menggunakan default: $defaultValue');
+      return defaultValue;
+    }
+  }
+
+  // Baca input int dengan default value jika kosong
+  int bacaInt(String label, int defaultValue) {
+    stdout.write('$label (Enter untuk skip, default: $defaultValue): ');
+    String input = stdin.readLineSync()!.trim();
+    if (input.isEmpty) {
+      return defaultValue;
+    }
+    try {
+      return int.parse(input);
+    } catch (e) {
+      print('Input tidak valid. Menggunakan default: $defaultValue');
+      return defaultValue;
+    }
+  }
+
+  // Baca input string dengan default value jika kosong
+  String bacaStringDenganDefault(String label, String defaultValue) {
+    stdout.write('$label (Enter untuk skip, default: "$defaultValue"): ');
+    String input = stdin.readLineSync()!.trim();
+    if (input.isEmpty) {
+      return defaultValue;
+    }
+    return input;
+  }
+
+  // Baca input double yang wajib diisi
+  double bacaDoubleWajib(String label) {
+    while (true) {
+      stdout.write('$label: ');
+      String input = stdin.readLineSync()!.trim();
+      if (input.isEmpty) {
+        print('Input tidak boleh kosong!');
+        continue;
+      }
+      try {
+        return double.parse(input);
+      } catch (e) {
+        print('Input tidak valid. Coba lagi!');
+      }
+    }
+  }
+
+  // Baca input int yang wajib diisi
+  int bacaIntWajib(String label) {
+    while (true) {
+      stdout.write('$label: ');
+      String input = stdin.readLineSync()!.trim();
+      if (input.isEmpty) {
+        print('Input tidak boleh kosong!');
+        continue;
+      }
+      try {
+        return int.parse(input);
+      } catch (e) {
+        print('Input tidak valid. Coba lagi!');
+      }
+    }
   }
 }
