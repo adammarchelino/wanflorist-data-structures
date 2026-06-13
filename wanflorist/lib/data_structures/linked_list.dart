@@ -1,5 +1,6 @@
 import 'node.dart';
 
+// Linked List
 class LinkedList<T> {
   Node<T>? head;
 

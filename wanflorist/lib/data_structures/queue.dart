@@ -1,6 +1,7 @@
 import 'node.dart';
 import 'package:wanflorist/models/pesanan.dart';
 
+// Queue
 class QueuePesanan {
   Node<Pesanan>? head;
   Node<Pesanan>? tail;

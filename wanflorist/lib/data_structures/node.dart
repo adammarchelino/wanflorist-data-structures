@@ -1,3 +1,4 @@
+// Node
 class Node<T> {
   T nodeValue;
   Node<T>? next;

@@ -1,5 +1,6 @@
 import 'node.dart';
 
+// Stack
 class StackLog {
   Node<String>? top;
 

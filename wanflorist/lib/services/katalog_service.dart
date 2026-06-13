@@ -93,6 +93,7 @@ class KatalogProduk {
     print('Produk tidak ditemukan.');
   }
 
+  // Sequential Search
   Produk? cariProduk(String katakunci) {
     Node<Produk>? sekarang = daftarProduk.head;
     while (sekarang != null) {
@@ -118,7 +119,7 @@ class KatalogProduk {
     return null;
   }
 
-  // sorting harga dengan bubble short
+  // Bubble Sort
   void urutkanByHarga() {
     List<Produk> listProduk = [];
     Node<Produk>? sekarang = daftarProduk.head;
