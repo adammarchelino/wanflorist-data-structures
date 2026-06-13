@@ -1,5 +1,5 @@
 import 'node.dart';
-import 'package:wanflorist/entitas/pesanan.dart';
+import 'package:wanflorist/models/pesanan.dart';
 
 class QueuePesanan {
   Node<Pesanan>? head;

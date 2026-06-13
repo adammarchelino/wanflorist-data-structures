@@ -1,9 +1,9 @@
-import 'package:wanflorist/struktur/queue_pesanan.dart';
-import 'package:wanflorist/struktur/node.dart';
-import 'package:wanflorist/struktur/stack_log.dart';
-import 'package:wanflorist/entitas/pesanan.dart';
-import 'package:wanflorist/entitas/detail_pesanan.dart';
-import 'package:wanflorist/entitas/status_pesanan.dart';
+import 'package:wanflorist/data_structures/queue.dart';
+import 'package:wanflorist/data_structures/node.dart';
+import 'package:wanflorist/data_structures/stack.dart';
+import 'package:wanflorist/models/pesanan.dart';
+import 'package:wanflorist/models/detail_pesanan.dart';
+import 'package:wanflorist/models/status_pesanan.dart';
 
 class AntrianPesanan {
   QueuePesanan antrian = QueuePesanan();

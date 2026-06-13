@@ -59,7 +59,6 @@ class ConsoleUI {
     stdin.readLineSync();
   }
 
-  // Baca input double dengan default value jika kosong
   double bacaDouble(String label, double defaultValue) {
     stdout.write('$label (Enter untuk skip, default: $defaultValue): ');
     String input = stdin.readLineSync()!.trim();
@@ -74,7 +73,6 @@ class ConsoleUI {
     }
   }
 
-  // Baca input int dengan default value jika kosong
   int bacaInt(String label, int defaultValue) {
     stdout.write('$label (Enter untuk skip, default: $defaultValue): ');
     String input = stdin.readLineSync()!.trim();
@@ -89,7 +87,6 @@ class ConsoleUI {
     }
   }
 
-  // Baca input string dengan default value jika kosong
   String bacaStringDenganDefault(String label, String defaultValue) {
     stdout.write('$label (Enter untuk skip, default: "$defaultValue"): ');
     String input = stdin.readLineSync()!.trim();
@@ -99,7 +96,6 @@ class ConsoleUI {
     return input;
   }
 
-  // Baca input double yang wajib diisi
   double bacaDoubleWajib(String label) {
     while (true) {
       stdout.write('$label: ');
@@ -116,7 +112,6 @@ class ConsoleUI {
     }
   }
 
-  // Baca input int yang wajib diisi
   int bacaIntWajib(String label) {
     while (true) {
       stdout.write('$label: ');

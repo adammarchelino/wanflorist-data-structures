@@ -1,6 +1,5 @@
-import 'package:wanflorist/aplikasi/wan_florist_app.dart';
+import 'package:wanflorist/main.dart' as app;
 
 void main() {
-  WanFloristApp app = WanFloristApp();
-  app.jalankan();
+  app.main();
 }

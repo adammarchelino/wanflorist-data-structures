@@ -1,7 +1,7 @@
-import 'package:wanflorist/struktur/linked_list.dart';
-import 'package:wanflorist/entitas/produk.dart';
-import 'package:wanflorist/struktur/node.dart';
-import "package:wanflorist/layanan/penyimpanan.dart";
+import 'package:wanflorist/data_structures/linked_list.dart';
+import 'package:wanflorist/models/produk.dart';
+import 'package:wanflorist/data_structures/node.dart';
+import 'package:wanflorist/services/penyimpanan.dart';
 
 class KatalogProduk {
   LinkedList<Produk> daftarProduk = LinkedList();
